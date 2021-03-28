@@ -6,7 +6,8 @@ import data from '../../bpm.json';
 const defaultProps = {
   bpmData: data,
   setSelectedBpm: jest.fn(),
-  selectedBpm: 74
+  selectedBpm: 74,
+  setShowMore: jest.fn()
 };
 
 describe('containers <ButtonGroup /> render tests', () => {

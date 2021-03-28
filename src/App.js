@@ -7,6 +7,7 @@ const AppWrapper = styled.div`
   background: ${styles.backgroundColour};
   display: flex;
   height: inherit;
+  overflow: scroll;
 `;
 
 const App = () => {
