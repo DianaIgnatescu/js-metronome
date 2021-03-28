@@ -7,6 +7,8 @@ const Title = styled.h1`
   color: ${styles.primaryTextColour};
   font-size: 1.8rem;
   font-family: ${styles.fontFamily};
+  letter-spacing: 6px;
+  text-align: center;
 `;
 
 const Header = () => {
