@@ -6,7 +6,8 @@ import Button from './Button';
 const defaultProps = {
   value: 74,
   selected: 64,
-  handleClick: jest.fn()
+  handleClick: jest.fn(),
+  setShowMore: jest.fn()
 };
 
 describe('containers <Button /> render tests', () => {
