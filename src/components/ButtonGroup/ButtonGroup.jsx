@@ -10,10 +10,12 @@ const ButtonGroupWrapper = styled.div`
   width: 300px;
 `;
 
-const ButtonGroup = ({ bpmData, setSelectedBpm, selectedBpm }) => {
+const ButtonGroup = ({ bpmData, setSelectedBpm, selectedBpm, setShowMore }) => {
   let bpmValues = [];
   // Extract bpmValues into a new array
-  bpmData.forEach((dataItem) => bpmValues.push(dataItem[2]));
+  if (bpmData) {
+    bpmData.forEach((dataItem) => bpmValues.push(dataItem[2]));
+  }
 
   // Only store unique bpm values
   const uniqueBpmValues = [...new Set(bpmValues)];
@@ -21,7 +23,7 @@ const ButtonGroup = ({ bpmData, setSelectedBpm, selectedBpm }) => {
   return (
     <ButtonGroupWrapper>
       {uniqueBpmValues.map((item, i) => (
-        <Button key={`${item}-${i}`} value={item} handleClick={setSelectedBpm} selected={selectedBpm} />
+        <Button key={`${item}-${i}`} value={item} handleClick={setSelectedBpm} selected={selectedBpm} setShowMore={setShowMore} />
       ))}
     </ButtonGroupWrapper>
   );
@@ -30,7 +32,8 @@ const ButtonGroup = ({ bpmData, setSelectedBpm, selectedBpm }) => {
 ButtonGroup.propTypes = {
   bpmData: PropTypes.array.isRequired,
   setSelectedBpm: PropTypes.func.isRequired,
-  selectedBpm: PropTypes.number.isRequired
+  selectedBpm: PropTypes.number.isRequired,
+  setShowMore: PropTypes.func.isRequired
 };
 
 export default ButtonGroup;

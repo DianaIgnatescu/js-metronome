@@ -8,7 +8,7 @@ const StyledButton = styled.div`
   width: 84px;
   background: ${(props) => (props.selected === props.value ? styles.primaryTextColour : '#2d1c3f')};
   border: none;
-  margin-bottom: 12px;
+  margin: 0px 3px 12px 3px;
   color: ${(props) => (props.selected === props.value ? styles.backgroundColour : '#8eacff')};
   font-size: 1.4rem;
   text-align: center;
@@ -24,13 +24,14 @@ const StyledButton = styled.div`
   }
 `;
 
-const Button = ({ value, selected, handleClick }) => {
-  const handleClickButton = (value) => {
+const Button = ({ value, selected, handleClick, setShowMore }) => {
+  const handleClickButton = (value, hideContent) => {
+    hideContent(false);
     handleClick(value);
   };
 
   return (
-    <StyledButton selected={selected} value={value} onClick={() => handleClickButton(value)}>
+    <StyledButton selected={selected} value={value} onClick={() => handleClickButton(value, setShowMore)}>
       {value} BPM
     </StyledButton>
   );
@@ -41,5 +42,6 @@ export default Button;
 Button.propTypes = {
   value: PropTypes.number.isRequired,
   handleClick: PropTypes.func.isRequired,
-  selected: PropTypes.number.isRequired
+  selected: PropTypes.number.isRequired,
+  setShowMore: PropTypes.func.isRequired
 };
