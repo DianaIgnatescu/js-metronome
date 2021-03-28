@@ -30,11 +30,11 @@ const DetailsItemText = styled.p`
   font-weight: ${styles.fontWeightBlack};
 `;
 
-const Details = ({ bpmArray, selectedBpm }) => {
+const Details = ({ bpmData, selectedBpm }) => {
   return (
     <DetailsWrapper>
       <DetailsTitle>Songs that use this BPM</DetailsTitle>
-      {bpmArray
+      {bpmData
         .filter((item) => selectedBpm === item[2])
         .map((item, i) => (
           <DetailsItemText key={`${item[0]}-${i}`}>
@@ -46,7 +46,7 @@ const Details = ({ bpmArray, selectedBpm }) => {
 };
 
 Details.propTypes = {
-  bpmArray: PropTypes.array.isRequired,
+  bpmData: PropTypes.array.isRequired,
   selectedBpm: PropTypes.number.isRequired
 };
 

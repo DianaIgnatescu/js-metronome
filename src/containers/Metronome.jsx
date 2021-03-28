@@ -23,7 +23,7 @@ const Metronome = () => {
       <Header />
       <Animation displayedValue={selectedBpm} />
       <ButtonGroup bpmData={bpmData} setSelectedBpm={setSelectedBpm} selectedBpm={selectedBpm} />
-      <Details selectedBpm={selectedBpm} bpmArray={bpmData} />
+      <Details selectedBpm={selectedBpm} bpmData={bpmData} />
     </MetronomeWrapper>
   );
 };
