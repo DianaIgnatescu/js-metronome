@@ -1,13 +1,20 @@
 import React from 'react';
-import './App.css';
 import Metronome from './containers/Metronome';
+import styled from 'styled-components';
+import styles from './styles';
 
-function App() {
+const AppWrapper = styled.div`
+  background: ${styles.backgroundColour};
+  display: flex;
+  height: inherit;
+`;
+
+const App = () => {
   return (
-    <div className="App" style={{ minHeight: '100vh', background: '#161020' }}>
+    <AppWrapper>
       <Metronome />
-    </div>
+    </AppWrapper>
   );
-}
+};
 
 export default App;
